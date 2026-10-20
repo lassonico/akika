@@ -255,7 +255,13 @@
         // Alternar menú móvil
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            if (menu.classList.contains('max-h-0')) {
+                menu.classList.remove('max-h-0');
+                menu.classList.add('max-h-[500px]');
+            } else {
+                menu.classList.remove('max-h-[500px]');
+                menu.classList.add('max-h-0');
+            }
         }
 
         // Ir a la sección de pedidos

@@ -57,7 +57,7 @@
         <header class="sticky top-[30px] sm:top-[49px] z-40 bg-crema/95 backdrop-blur-md border-b border-cacao/10 transition-all">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
                 <!-- Brand Logo -->
-                <a href="#" class="flex items-center gap-2.5 sm:gap-3 group">
+                <a href="javascript:void(0)" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" class="flex items-center gap-2.5 sm:gap-3 group">
                     <svg class="w-10 h-10 sm:w-11 sm:h-11 transition-transform group-hover:scale-105 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="60" cy="60" r="56" fill="#F2C46A" fill-opacity="0.35"/>
                         <path d="M60 22C60 22 82 26 86 48C90 70 60 88 60 88C60 88 30 70 34 48C38 26 60 22 60 22Z" fill="#AEAC78"/>
@@ -93,11 +93,13 @@
             </div>
 
             <!-- Mobile Navigation Drawer -->
-            <div id="mobile-menu" class="hidden md:hidden bg-crema border-t border-cacao/10 px-4 pt-3 pb-4 space-y-2 shadow-lg">
-                <a href="javascript:void(0)" onclick="document.getElementById('nosotros').scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">💛 Nosotros (Palermo, Huila)</a>
-                <a href="javascript:void(0)" onclick="document.getElementById('ingredientes').scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">🌰 Ingredientes Nobles</a>
-                <a href="javascript:void(0)" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">🧁 Menú Sin Culpa</a>
-                <a href="javascript:void(0)" onclick="document.getElementById('pedidos').scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao bg-miel/40">🛵 Hacer Pedido por WhatsApp</a>
+            <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-crema border-t border-cacao/10 transition-all duration-400 ease-in-out">
+                <div class="px-4 pt-3 pb-4 space-y-2 shadow-lg">
+                    <a href="javascript:void(0)" onclick="document.getElementById('nosotros').scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">💛 Nosotros (Palermo, Huila)</a>
+                    <a href="javascript:void(0)" onclick="document.getElementById('ingredientes').scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">🌰 Ingredientes Nobles</a>
+                    <a href="javascript:void(0)" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">🧁 Menú Sin Culpa</a>
+                    <a href="javascript:void(0)" onclick="document.getElementById('pedidos').scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao bg-miel/40">🛵 Hacer Pedido por WhatsApp</a>
+                </div>
             </div>
         </header>
 
