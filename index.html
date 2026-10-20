@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akika | Repostería Saludable Sin Culpa</title>
+    <meta name="theme-color" content="#4C4541">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        crema: '#FCF0DA',
+                        cremaDark: '#F5E2BE',
+                        salvia: '#AEAC78',
+                        salviaDark: '#94925E',
+                        miel: '#F2C46A',
+                        mielDark: '#E5B24D',
+                        cacao: '#4C4541',
+                        cacaoLight: '#6E655F'
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body class="antialiased selection:bg-miel selection:text-cacao overflow-x-hidden">
+
+    <!-- Top Mode Switcher Banner (Responsive Optimized) -->
+    <div class="bg-cacao text-crema py-2 px-3 sm:px-4 sticky top-0 z-50 shadow-md border-b border-cacaoLight">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs sm:text-sm">
+            <div class="flex items-center justify-start sm:justify-start gap-2 w-full sm:w-auto">
+                <span class="bg-miel text-cacao font-bold px-2.5 py-0.5 rounded-full text-[11px] uppercase tracking-wider shrink-0">Akika</span>
+                <span class="text-crema/85 text-xs truncate">Tienda oficial</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: AKIKA LANDING PAGE & STORE         -->
+    <!-- ========================================== -->
+    <div id="view-landing">
+        <!-- Navbar -->
+        <header class="sticky top-[30px] sm:top-[49px] z-40 bg-crema/95 backdrop-blur-md border-b border-cacao/10 transition-all">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-2.5 sm:gap-3 group">
+                    <svg class="w-10 h-10 sm:w-11 sm:h-11 transition-transform group-hover:scale-105 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="60" r="56" fill="#F2C46A" fill-opacity="0.35"/>
+                        <path d="M60 22C60 22 82 26 86 48C90 70 60 88 60 88C60 88 30 70 34 48C38 26 60 22 60 22Z" fill="#AEAC78"/>
+                        <path d="M60 35C52 27 38 33 38 47C38 64 60 78 60 88C60 78 82 64 82 47C82 33 68 27 60 35Z" fill="#4C4541"/>
+                        <path d="M60 44C56 40 48 43 48 50C48 58 60 66 60 72C60 66 72 58 72 50C72 43 64 40 60 44Z" fill="#F2C46A"/>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="font-brand text-2xl sm:text-3xl font-bold text-cacao leading-none tracking-tight">akika</span>
+                        <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-salviaDark font-bold mt-0.5">Repostería Saludable</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-cacao">
+                    <a href="#nosotros" class="hover:text-salviaDark transition-colors">Nosotros</a>
+                    <a href="#ingredientes" class="hover:text-salviaDark transition-colors">Ingredientes</a>
+                    <a href="#catalogo" class="hover:text-salviaDark transition-colors">Menú</a>
+                    <a href="#filosofia" class="hover:text-salviaDark transition-colors">Sin Culpa</a>
+                    <a href="#pedidos" class="hover:text-salviaDark transition-colors">Hacer Pedido</a>
+                </nav>
+
+                <!-- Cart & Mobile Menu Toggle -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <button onclick="scrollToOrder()" class="relative bg-miel hover:bg-mielDark text-cacao font-bold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm transition-all shadow-sm flex items-center gap-1.5 sm:gap-2">
+                        <i data-lucide="shopping-bag" class="w-4 h-4 shrink-0"></i>
+                        <span>Mi Pedido</span>
+                        <span id="cart-badge" class="bg-cacao text-crema text-[11px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-cremaDark/70 text-cacao hover:bg-cremaDark transition-colors" aria-label="Abrir menú">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <div id="mobile-menu" class="hidden md:hidden bg-crema border-t border-cacao/10 px-4 pt-3 pb-4 space-y-2 shadow-lg">
+                <a href="#nosotros" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">💛 Nosotros (Palermo, Huila)</a>
+                <a href="#ingredientes" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">🌰 Ingredientes Nobles</a>
+                <a href="#catalogo" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">🧁 Menú Sin Culpa</a>
+                <a href="#pedidos" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao bg-miel/40">🛵 Hacer Pedido por WhatsApp</a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative pt-8 pb-16 md:py-24 overflow-hidden">
+            <!-- Decorative background blobs -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-miel/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/2 -left-24 w-80 h-80 bg-salvia/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left Column: Copy -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 bg-salvia/25 border border-salvia text-cacao px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
+                            <span class="w-2 h-2 rounded-full bg-salviaDark animate-ping"></span>
+                            0% Azúcar Refinada • 0% Harina de Trigo
+                        </div>
+
+                        <h1 class="text-4xl sm:text-6xl font-bold text-cacao leading-[1.12] tracking-tight">
+                            El placer de un buen postre, <span class="italic font-normal text-salviaDark underline decoration-miel decoration-wavy decoration-2 underline-offset-8">sin culpa</span> ni remordimientos.
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-cacaoLight max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            En <strong>Akika</strong> reinventamos tus antojos favoritos. Horneamos <strong>cupcakes, brownies y galletas</strong> artesanales usando exclusivamente harina de almendra, alulosa y chocolate amargo real.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#catalogo" class="w-full sm:w-auto bg-cacao hover:bg-cacaoLight text-crema font-bold px-8 py-4 rounded-full transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-base">
+                                Ver Menú Saludable
+                                <i data-lucide="arrow-right" class="w-5 h-5 text-miel"></i>
+                            </a>
+                            <a href="#ingredientes" class="w-full sm:w-auto bg-cremaDark/70 hover:bg-cremaDark text-cacao border border-cacao/15 font-semibold px-7 py-4 rounded-full transition-all flex items-center justify-center gap-2 text-base">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-salviaDark"></i>
+                                Conoce nuestros ingredientes
+                            </a>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div class="pt-6 grid grid-cols-3 gap-4 border-t border-cacao/10 max-w-lg mx-auto lg:mx-0">
+                            <div class="flex items-center gap-2 justify-center lg:justify-start">
+                                <div class="w-8 h-8 rounded-full bg-miel/30 flex items-center justify-center text-cacao shrink-0">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-cacao leading-tight">Apto Keto & Diabéticos</span>
+                            </div>
+                            <div class="flex items-center gap-2 justify-center lg:justify-start">
+                                <div class="w-8 h-8 rounded-full bg-salvia/30 flex items-center justify-center text-cacao shrink-0">
+                                    <i data-lucide="wheat-off" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-cacao leading-tight">100% Libre de Gluten</span>
+                            </div>
+                            <div class="flex items-center gap-2 justify-center lg:justify-start">
+                                <div class="w-8 h-8 rounded-full bg-miel/30 flex items-center justify-center text-cacao shrink-0">
+                                    <i data-lucide="heart-handshake" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-cacao leading-tight">Hecho en Casa con Amor</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Visual Composition -->
+                    <div class="lg:col-span-5 relative flex justify-center">
+                        <div class="relative w-full max-w-md aspect-square flex items-center justify-center">
+                            <!-- Animated background shape -->
+                            <div class="absolute inset-4 bg-gradient-to-tr from-salvia/40 via-miel/40 to-cremaDark blob-shape"></div>
+                            
+                            <!-- Main Dessert Art Card -->
+                            <div class="relative z-10 bg-white/80 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl border border-cacao/10 w-11/12 text-center">
+                                <!-- Custom Aesthetic SVG of Cupcake, Brownie & Cookie -->
+                                <svg class="w-full h-56 mx-auto" viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Plate -->
+                                    <ellipse cx="150" cy="190" rx="125" ry="18" fill="#FCF0DA" stroke="#4C4541" stroke-width="2.5"/>
+                                    <ellipse cx="150" cy="188" rx="95" ry="10" fill="#F5E2BE"/>
+                                    
+                                    <!-- Brownie (Left) -->
+                                    <g transform="translate(35, 110)">
+                                        <path d="M10 30 L55 15 L90 30 L90 70 L45 85 L10 70 Z" fill="#4C4541" stroke="#4C4541" stroke-width="2" stroke-linejoin="round"/>
+                                        <path d="M10 30 L55 15 L90 30 L45 45 Z" fill="#6E655F" stroke="#4C4541" stroke-width="2" stroke-linejoin="round"/>
+                                        <!-- Almond slices on brownie -->
+                                        <ellipse cx="48" cy="28" rx="6" ry="3" transform="rotate(-15 48 28)" fill="#FCF0DA"/>
+                                        <ellipse cx="62" cy="32" rx="5" ry="2.5" transform="rotate(20 62 32)" fill="#F2C46A"/>
+                                        <ellipse cx="38" cy="34" rx="5" ry="2.5" transform="rotate(5 38 34)" fill="#FCF0DA"/>
+                                    </g>
+
+                                    <!-- Cupcake (Center Hero) -->
+                                    <g transform="translate(105, 45)">
+                                        <!-- Wrapper -->
+                                        <path d="M15 85 L25 140 L65 140 L75 85 Z" fill="#AEAC78" stroke="#4C4541" stroke-width="2.5" stroke-linejoin="round"/>
+                                        <line x1="30" y1="85" x2="35" y2="140" stroke="#4C4541" stroke-width="1.5" stroke-opacity="0.4"/>
+                                        <line x1="45" y1="85" x2="45" y2="140" stroke="#4C4541" stroke-width="1.5" stroke-opacity="0.4"/>
+                                        <line x1="60" y1="85" x2="55" y2="140" stroke="#4C4541" stroke-width="1.5" stroke-opacity="0.4"/>
+                                        <!-- Sponge base -->
+                                        <path d="M12 85 C12 68 78 68 78 85 Z" fill="#F2C46A" stroke="#4C4541" stroke-width="2.5"/>
+                                        <!-- Chocolate Frosting Swirl -->
+                                        <path d="M18 75 C10 60 25 50 28 50 C22 35 40 25 45 25 C45 15 55 15 58 25 C68 28 75 40 65 52 C75 58 78 72 68 75 Z" fill="#4C4541" stroke="#4C4541" stroke-width="2.5" stroke-linejoin="round"/>
+                                        <!-- Frosting highlights -->
+                                        <path d="M32 52 C38 48 52 48 58 54" stroke="#6E655F" stroke-width="3" stroke-linecap="round"/>
+                                        <path d="M38 36 C42 33 50 33 54 37" stroke="#6E655F" stroke-width="3" stroke-linecap="round"/>
+                                        <!-- Top Almond / Berry -->
+                                        <path d="M45 8 C40 14 40 22 45 26 C50 22 50 14 45 8 Z" fill="#F2C46A" stroke="#4C4541" stroke-width="2"/>
+                                    </g>
+
+                                    <!-- Cookie (Right) -->
+                                    <g transform="translate(175, 125)">
+                                        <ellipse cx="45" cy="45" rx="38" ry="24" fill="#F2C46A" stroke="#4C4541" stroke-width="2.5"/>
+                                        <!-- Chocolate chips -->
+                                        <circle cx="30" cy="40" r="4" fill="#4C4541"/>
+                                        <circle cx="48" cy="35" r="4.5" fill="#4C4541"/>
+                                        <circle cx="60" cy="46" r="3.5" fill="#4C4541"/>
+                                        <circle cx="40" cy="52" r="4" fill="#4C4541"/>
+                                        <circle cx="25" cy="50" r="3" fill="#4C4541"/>
+                                        <circle cx="55" cy="38" r="2.5" fill="#FCF0DA"/>
+                                    </g>
+
+                                    <!-- Sparkles -->
+                                    <circle cx="65" cy="60" r="4" fill="#F2C46A"/>
+                                    <circle cx="235" cy="80" r="5" fill="#AEAC78"/>
+                                    <path d="M215 40 L218 48 L226 51 L218 54 L215 62 L212 54 L204 51 L212 48 Z" fill="#F2C46A"/>
+                                </svg>
+
+                                <div class="mt-2">
+                                    <span class="bg-salvia/30 text-cacao text-xs font-bold px-3 py-1 rounded-full">100% Keto & Paleo Friendly</span>
+                                    <h3 class="font-brand text-xl font-bold text-cacao mt-2">Dulzura que cuida de ti</h3>
+                                    <p class="text-xs text-cacaoLight mt-1">Sin picos de insulina • Textura suave y húmeda</p>
+                                </div>
+                            </div>
+
+                            <!-- Floating badge -->
+                            <div class="absolute -bottom-3 -left-2 sm:left-4 bg-cacao text-crema p-4 rounded-2xl shadow-lg flex items-center gap-3 z-20 border border-miel/30">
+                                <div class="w-10 h-10 rounded-full bg-miel text-cacao flex items-center justify-center font-bold text-lg">
+                                    0%
+                                </div>
+                                <div class="text-left">
+                                    <p class="text-xs font-bold text-miel uppercase tracking-wider">Azúcar y Trigo</p>
+                                    <p class="text-xs text-crema/90">Endulzado con Alulosa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ingredientes Estrella Section -->
+        <section id="ingredientes" class="py-16 bg-cacao text-crema relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-miel font-bold tracking-widest uppercase text-xs">Nuestra Magia Natural</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mt-2">¿Por qué puedes comer Akika sin remordimientos?</h2>
+                    <p class="text-crema/80 mt-3 text-sm sm:text-base">
+                        Reemplazamos los ingredientes inflamatorios de la pastelería tradicional por tres super-ingredientes nobles que nutren tu cuerpo sin sacrificar el sabor.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Ingrediente 1 -->
+                    <div class="bg-cacaoLight/30 border border-crema/10 rounded-3xl p-8 hover:border-miel/50 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-crema text-cacao flex items-center justify-center mb-6 shadow-md">
+                            <i data-lucide="nut" class="w-7 h-7 text-cacao"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-miel">Cero Harinas Refinadas</span>
+                        <h3 class="text-2xl font-bold mt-1 mb-3">Harina de Almendra</h3>
+                        <p class="text-crema/80 text-sm leading-relaxed">
+                            Rica en grasas saludables, proteína vegetal, vitamina E y fibra. Aporta una miga húmeda, suave y deliciosa sin gluten y con muy pocos carbohidratos.
+                        </p>
+                    </div>
+
+                    <!-- Ingrediente 2 -->
+                    <div class="bg-cacaoLight/30 border border-crema/10 rounded-3xl p-8 hover:border-miel/50 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-salvia text-cacao flex items-center justify-center mb-6 shadow-md">
+                            <i data-lucide="flower-2" class="w-7 h-7 text-cacao"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-salvia">Cero Azúcar Añadida</span>
+                        <h3 class="text-2xl font-bold mt-1 mb-3">Endulzado con Alulosa</h3>
+                        <p class="text-crema/80 text-sm leading-relaxed">
+                            Un endulzante natural de origen vegetal que sabe idéntico al azúcar, carameliza igual al hornear, pero <strong>no eleva la glucosa ni aporta calorías vacías</strong> (sin regusto amargo).
+                        </p>
+                    </div>
+
+                    <!-- Ingrediente 3 -->
+                    <div class="bg-cacaoLight/30 border border-crema/10 rounded-3xl p-8 hover:border-miel/50 transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-miel text-cacao flex items-center justify-center mb-6 shadow-md">
+                            <i data-lucide="sparkles" class="w-7 h-7 text-cacao"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-miel">Antioxidantes Puros</span>
+                        <h3 class="text-2xl font-bold mt-1 mb-3">Chocolate Amargo Real</h3>
+                        <p class="text-crema/80 text-sm leading-relaxed">
+                            Usamos chocolate al 70% - 85% de cacao sin azúcar. Lleno de antioxidantes naturales que mejoran tu estado de ánimo y dan ese sabor intenso e irresistible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catálogo de Productos Section -->
+        <section id="catalogo" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+                <div>
+                    <span class="text-salviaDark font-bold tracking-widest uppercase text-xs bg-salvia/20 px-3 py-1 rounded-full">Recién salido del horno</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-cacao mt-3">Nuestro Menú Sin Culpa</h2>
+                </div>
+                
+                <!-- Category Filter Pills -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterProducts('todos')" id="filter-todos" class="filter-btn bg-cacao text-crema px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all">
+                        Todos
+                    </button>
+                    <button onclick="filterProducts('kupkakes')" id="filter-kupkakes" class="filter-btn bg-cremaDark/60 hover:bg-cremaDark text-cacao px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all">
+                        🧁 Kupkakes
+                    </button>
+                    <button onclick="filterProducts('brownies')" id="filter-brownies" class="filter-btn bg-cremaDark/60 hover:bg-cremaDark text-cacao px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all">
+                        🍫 Brownies
+                    </button>
+                    <button onclick="filterProducts('galletas')" id="filter-galletas" class="filter-btn bg-cremaDark/60 hover:bg-cremaDark text-cacao px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all">
+                        🍪 Galletas
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </section>
+
+        <!-- Banner Comparativo Filosofía -->
+        <section id="filosofia" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="bg-gradient-to-r from-salvia/30 via-miel/25 to-salvia/30 rounded-3xl p-8 sm:p-12 border border-cacao/10 flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div class="max-w-xl space-y-3 text-center lg:text-left">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-cacao">¿Antojo de media tarde o regalo especial?</h3>
+                    <p class="text-cacaoLight text-sm sm:text-base">
+                        Nuestros postres están pensados para personas que cuidan su salud, deportistas, personas con diabetes o cualquiera que quiera disfrutar de algo dulce sin pesadez ni remordimientos.
+                    </p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 shrink-0">
+                    <div class="bg-crema px-5 py-4 rounded-2xl border border-cacao/10 text-center shadow-sm">
+                        <span class="block font-brand text-2xl font-bold text-cacao">100%</span>
+                        <span class="text-xs text-cacaoLight font-semibold">Artesanal</span>
+                    </div>
+                    <div class="bg-crema px-5 py-4 rounded-2xl border border-cacao/10 text-center shadow-sm">
+                        <span class="block font-brand text-2xl font-bold text-cacao">Bajo</span>
+                        <span class="text-xs text-cacaoLight font-semibold">Índice Glucémico</span>
+                    </div>
+                    <div class="bg-crema px-5 py-4 rounded-2xl border border-cacao/10 text-center shadow-sm">
+                        <span class="block font-brand text-2xl font-bold text-cacao">Keto</span>
+                        <span class="text-xs text-cacaoLight font-semibold">Friendly</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Nosotros (Emprendimiento Familiar Palermo, Huila) -->
+        <section id="nosotros" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-12 border border-cacao/10 shadow-sm relative overflow-hidden">
+                <!-- Decorative background accent -->
+                <div class="absolute -bottom-20 -right-20 w-72 h-72 bg-miel/20 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                    <!-- Columna Visual / Sello Familiar -->
+                    <div class="lg:col-span-5 flex flex-col items-center text-center bg-crema p-6 sm:p-8 rounded-3xl border border-cacao/10 shadow-inner">
+                        <div class="w-20 h-20 rounded-full bg-salvia/30 border-2 border-salvia flex items-center justify-center mb-4 text-cacao shadow-sm">
+                            <i data-lucide="heart-handshake" class="w-10 h-10 text-cacao"></i>
+                        </div>
+                        <span class="bg-miel/40 text-cacao text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">De nuestra familia a tu mesa</span>
+                        <h3 class="font-brand text-2xl sm:text-3xl font-bold text-cacao mt-3">Orgullosamente de Palermo, Huila</h3>
+                        <p class="text-xs sm:text-sm text-cacaoLight mt-2 leading-relaxed">
+                            Horneamos con la calidez de nuestra tierra opita, cuidando cada detalle como si fuera para nuestra propia casa.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-3 w-full mt-6 pt-6 border-t border-cacao/10">
+                            <div class="bg-white/80 p-3 rounded-2xl border border-cacao/5">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-salviaDark mx-auto mb-1"></i>
+                                <span class="block text-xs font-bold text-cacao">Palermo, Huila</span>
+                                <span class="text-[10px] text-cacaoLight">Sello Local</span>
+                            </div>
+                            <div class="bg-white/80 p-3 rounded-2xl border border-cacao/5">
+                                <i data-lucide="users" class="w-5 h-5 text-mielDark mx-auto mb-1"></i>
+                                <span class="block text-xs font-bold text-cacao">100% Familiar</span>
+                                <span class="text-[10px] text-cacaoLight">Sentido Humano</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Historia y Propósito -->
+                    <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 text-salviaDark font-bold tracking-widest uppercase text-xs bg-salvia/20 px-3.5 py-1.5 rounded-full">
+                            <i data-lucide="sprout" class="w-4 h-4"></i> Nuestra Historia y Propósito
+                        </div>
+                        
+                        <h2 class="text-3xl sm:text-4xl font-bold text-cacao leading-tight">
+                            Más que repostería saludable, un proyecto con <span class="text-salviaDark italic font-normal underline decoration-miel decoration-wavy">sentido humano</span>.
+                        </h2>
+
+                        <p class="text-cacaoLight text-sm sm:text-base leading-relaxed">
+                            <strong>Akika</strong> nació en el corazón de nuestro hogar en <strong>Palermo, Huila</strong>, como un emprendimiento familiar impulsado por un sueño claro: demostrar que cuidar la salud y disfrutar de un postre delicioso pueden ir de la mano.
+                        </p>
+
+                        <p class="text-cacaoLight text-sm sm:text-base leading-relaxed">
+                            Nuestro objetivo es aportar bienestar real a nuestra comunidad a través de productos de <strong>alta calidad artesanal</strong> —libres de azúcar y harinas refinadas— elaborados con ingredientes honestos como la harina de almendras, la alulosa y el cacao amargo. Creemos en el trato cercano, en escuchar a cada cliente y en poner amor, empatía y sentido humano en cada caja que entregamos.
+                        </p>
+
+                        <!-- Pilares de la familia Akika -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                            <div class="flex items-start gap-3 bg-crema/70 p-3.5 rounded-2xl border border-cacao/10 text-left">
+                                <i data-lucide="award" class="w-5 h-5 text-mielDark shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-xs text-cacao uppercase">Alta Calidad</h4>
+                                    <p class="text-xs text-cacaoLight mt-0.5">Ingredientes puros y seleccionados sin escatimar.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 bg-crema/70 p-3.5 rounded-2xl border border-cacao/10 text-left">
+                                <i data-lucide="heart-pulse" class="w-5 h-5 text-salviaDark shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-xs text-cacao uppercase">Aporte a la Salud</h4>
+                                    <p class="text-xs text-cacaoLight mt-0.5">Nutrición consciente apta para toda la familia.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 bg-crema/70 p-3.5 rounded-2xl border border-cacao/10 text-left">
+                                <i data-lucide="smile-plus" class="w-5 h-5 text-mielDark shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-xs text-cacao uppercase">Calidez Humana</h4>
+                                    <p class="text-xs text-cacaoLight mt-0.5">Hecho con amor por manos familiares huilenses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Pedidos y Contacto -->
+        <section id="pedidos" class="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white/75 backdrop-blur-md rounded-3xl shadow-xl border border-cacao/10 overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    
+                    <!-- Left Column: Order Summary & Contact Info -->
+                    <div class="lg:col-span-5 bg-cacao text-crema p-6 sm:p-10 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="text-miel text-xs font-bold uppercase tracking-widest">Pedido Directo</span>
+                                <span class="bg-salvia/30 text-crema text-[11px] px-2.5 py-0.5 rounded-full font-semibold">Palermo, Huila</span>
+                            </div>
+                            <h2 class="text-2xl sm:text-3xl font-bold mt-2">Tu Carrito Saludable</h2>
+                            <p class="text-crema/75 text-xs sm:text-sm mt-1.5">
+                                Ajusta las cantidades de tus postres o escríbenos para armar cajas personalizadas.
+                            </p>
+
+                            <!-- Cart Items List -->
+                            <div id="cart-items-container" class="mt-5 space-y-2.5 max-h-72 overflow-y-auto pr-1">
+                                <!-- Rendered by JS -->
+                            </div>
+
+                            <!-- Cart Total -->
+                            <div class="mt-5 pt-4 border-t border-crema/15 flex items-center justify-between">
+                                <span class="text-sm text-crema/80 font-medium">Total Estimado:</span>
+                                <span id="cart-total" class="font-brand text-2xl sm:text-3xl font-bold text-miel">$0</span>
+                            </div>
+                        </div>
+
+                        <!-- Direct Info -->
+                        <div class="mt-8 pt-6 border-t border-crema/15 space-y-3 text-xs sm:text-sm text-crema/85">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-miel shrink-0"></i>
+                                <span>Emprendimiento familiar en <strong>Palermo, Huila</strong>.</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="phone-call" class="w-4 h-4 text-salvia shrink-0"></i>
+                                <span>WhatsApp Pedidos: <strong>313 850 5017</strong></span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="clock" class="w-4 h-4 text-miel shrink-0"></i>
+                                <span>Horneamos bajo pedido para garantizar máxima frescura.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Form -->
+                    <div class="lg:col-span-7 p-6 sm:p-10">
+                        <h3 class="text-xl sm:text-2xl font-bold text-cacao mb-2">Finaliza tu pedido</h3>
+                        <p class="text-cacaoLight text-xs sm:text-sm mb-6">
+                            Completa tus datos para confirmar tu pedido.
+                        </p>
+
+                        <form id="order-form" onsubmit="handleOrderSubmit(event)" class="space-y-4 sm:space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Tu Nombre *</label>
+                                    <input type="text" id="cust-name" required placeholder="Ej. Laura Gómez" 
+                                        class="w-full px-4 py-3 rounded-xl bg-crema border border-cacao/20 text-cacao focus:outline-none focus:border-cacao text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Tu Celular / WhatsApp *</label>
+                                    <input type="tel" id="cust-phone" required placeholder="Ej. 310 123 4567" 
+                                        class="w-full px-4 py-3 rounded-xl bg-crema border border-cacao/20 text-cacao focus:outline-none focus:border-cacao text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Modalidad de Entrega *</label>
+                                    <select id="cust-type" class="w-full px-4 py-3 rounded-xl bg-crema border border-cacao/20 text-cacao focus:outline-none focus:border-cacao text-sm">
+                                        <option value="Pedido a Domicilio">🛵 Domicilio (Palermo / Alrededores)</option>
+                                        <option value="Recoger en Punto">🛍️ Recoger en Punto (Palermo)</option>
+                                        <option value="Caja de Regalo / Evento">🎁 Caja de Regalo o Evento</option>
+                                        <option value="Consulta General">💬 Consulta Personalizada</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Fecha deseada de entrega *</label>
+                                    <input type="date" id="cust-date" required 
+                                        class="w-full px-4 py-3 rounded-xl bg-crema border border-cacao/20 text-cacao focus:outline-none focus:border-cacao text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Dirección o Notas Especiales (Barrio, dedicatoria, etc.)</label>
+                                <textarea id="cust-notes" rows="3" placeholder="Indícanos tu dirección en Palermo, o si deseas incluir un mensaje especial..." 
+                                    class="w-full px-4 py-3 rounded-xl bg-crema border border-cacao/20 text-cacao focus:outline-none focus:border-cacao text-sm"></textarea>
+                            </div>
+
+                            <!-- Quick Add Checkbox -->
+                            <div id="quick-combo-box" class="bg-salvia/20 border border-salvia rounded-2xl p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
+                                <div class="flex items-start sm:items-center gap-3">
+                                    <input type="checkbox" id="add-degustacion" onchange="toggleDegustacion(this)" class="w-5 h-5 mt-0.5 sm:mt-0 accent-cacao rounded cursor-pointer shrink-0">
+                                    <label for="add-degustacion" class="text-xs sm:text-sm font-semibold text-cacao cursor-pointer leading-snug">
+                                        ✨ Agregar <strong>Caja Degustación Akika</strong> (2 Kupkakes + 2 Brownies + 4 Galletas)
+                                    </label>
+                                </div>
+                                <span class="font-bold text-sm text-cacao pl-8 sm:pl-0 shrink-0">$42.000</span>
+                            </div>
+
+                            <button type="submit" class="w-full bg-miel hover:bg-[#1ebe5d] text-cacao font-bold py-4 px-6 rounded-full shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 text-sm sm:text-base">
+                                <i data-lucide="message-circle" class="w-5 h-5 shrink-0"></i>
+                                <span>Enviar Pedido</span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-cacao text-crema py-12 border-t border-cacaoLight">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+                <div class="flex flex-col sm:flex-row items-center gap-3">
+                    <svg class="w-10 h-10" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="60" r="56" fill="#AEAC78"/>
+                        <path d="M60 35C52 27 38 33 38 47C38 64 60 78 60 88C60 78 82 64 82 47C82 33 68 27 60 35Z" fill="#FCF0DA"/>
+                        <path d="M60 44C56 40 48 43 48 50C48 58 60 66 60 72C60 66 72 58 72 50C72 43 64 40 60 44Z" fill="#F2C46A"/>
+                    </svg>
+                    <div>
+                        <span class="font-brand text-2xl font-bold text-crema">akika</span>
+                        <p class="text-xs text-crema/70">Emprendimiento Familiar • Palermo, Huila • WhatsApp: 313 850 5017</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 text-xs text-crema/70">
+                    <span>•</span>
+                    <span>Hecho con amor, calidad y sentido humano</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL DE CONFIRMACIÓN DE PEDIDO            -->
+    <!-- ========================================== -->
+    <div id="order-modal" class="fixed inset-0 z-50 hidden bg-cacao/75 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-crema border-2 border-cacao/20 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl text-center relative animate-fadeIn">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-cacaoLight hover:text-cacao">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="w-16 h-16 rounded-full bg-[#25D366]/20 text-[#25D366] flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="message-circle-heart" class="w-8 h-8 text-cacao"></i>
+            </div>
+            <h3 class="font-brand text-2xl font-bold text-cacao">¡Gracias por tu pedido, <span id="modal-name"></span>!</h3>
+            <p class="text-xs sm:text-sm text-cacaoLight mt-2">
+                Tu pedido está listo para enviarse al WhatsApp de <strong>Akika</strong>. Si no se abrió automáticamente, pulsa el botón verde abajo:
+            </p>
+
+            <div id="modal-summary-text" class="mt-4 bg-white p-4 rounded-2xl border border-cacao/15 text-left text-xs text-cacao font-mono whitespace-pre-line max-h-48 overflow-y-auto"></div>
+
+            <div class="mt-6 flex flex-col gap-2.5">
+                <a id="btn-whatsapp-direct" href="#" target="_blank" rel="noopener noreferrer" class="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold py-3.5 px-6 rounded-full text-sm transition-all flex items-center justify-center gap-2 shadow-md">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    Abrir WhatsApp y Enviar Pedido
+                </a>
+                <button onclick="copyOrderText()" id="btn-copy-order" class="w-full bg-cacao text-crema font-bold py-3 px-6 rounded-full text-xs sm:text-sm hover:bg-cacaoLight transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="copy" class="w-4 h-4"></i>
+                    Copiar Resumen del Pedido
+                </button>
+                <button onclick="closeModal()" class="w-full bg-cremaDark text-cacao font-semibold py-2.5 px-6 rounded-full text-xs hover:bg-miel transition-all">
+                    Seguir viendo la página
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
