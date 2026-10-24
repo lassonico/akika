@@ -55,12 +55,12 @@
     <!-- ========================================== -->
     <div id="view-landing">
         <!-- Navbar -->
-        <header class="sticky top-[30px] sm:top-[49px] z-40 bg-crema/95 backdrop-blur-md border-b border-cacao/10 transition-all">
+        <header class="sticky top-[37px] sm:top-[49px] z-40 bg-crema/95 backdrop-blur-md border-b border-cacao/10 transition-all">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
                 <!-- Brand Logo -->
                  <div class="flex items-center gap-1">
                      <a href="#">
-                         <img src="logo.png" style="display: block; margin: 0 auto;" alt="Akika Logo" class="h-10 sm:h-12">
+                         <img src="logo.png" style="display: block; margin: 0 auto;" alt="Akika Logo" class="w-7 h-7 sm:w-12 sm:h-12">
                      </a>
                      <a href="javascript:void(0)" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" class="flex items-center gap-2.5 sm:gap-3 group">
                          <div class="flex flex-col">
@@ -93,7 +93,7 @@
             </div>
 
             <!-- Mobile Navigation Drawer -->
-            <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-crema border-t border-cacao/10 transition-all duration-400 ease-in-out">
+            <div id="mobile-menu" class="max-h-0 overflow-hidden md:hidden bg-crema border-t border-cacao/10 transition-all duration-[400ms] ease-in-out">
                 <div class="px-4 pt-3 pb-4 space-y-2 shadow-lg">
                     <a href="javascript:void(0)" onclick="document.getElementById('nosotros').scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">💛 Nosotros (Palermo, Huila)</a>
                     <a href="javascript:void(0)" onclick="document.getElementById('ingredientes').scrollIntoView({behavior:'smooth'}); toggleMobileMenu(); return false;" class="block px-3 py-2 rounded-xl text-sm font-semibold text-cacao hover:bg-cremaDark/60">🌰 Ingredientes Nobles</a>
@@ -549,13 +549,14 @@
         <footer class="bg-cacao text-crema pt-10 pb-2 border-t border-cacaoLight">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
                 <div class="flex flex-col sm:flex-row items-center gap-3">
-                    <svg class="w-10 h-10" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="60" cy="60" r="56" fill="#AEAC78"/>
-                        <path d="M60 35C52 27 38 33 38 47C38 64 60 78 60 88C60 78 82 64 82 47C82 33 68 27 60 35Z" fill="#FCF0DA"/>
-                        <path d="M60 44C56 40 48 43 48 50C48 58 60 66 60 72C60 66 72 58 72 50C72 43 64 40 60 44Z" fill="#F2C46A"/>
-                    </svg>
+                    <div class="flex items-center flex-col gap-1 mb-5">
+                        <div class ="flex flex-col items-center">
+                            <img src="logo.png" alt="Logo Akika" class="w-8 h-8 sm:w-8 sm:h-8 mb-[-5px]">
+                            <span class="font-brand mb-5 text-3xl font-bold text-crema">akika</span>
+                        </div>
+                        <i data-lucide="heart" class="w-6 h-6 text-miel"></i>
+                    </div>
                     <div>
-                        <span class="font-brand text-2xl font-bold text-crema">akika</span>
                         <p class="text-xs text-crema/70">Emprendimiento Familiar • Palermo, Huila • WhatsApp: 313 850 5017</p>
                     </div>
                 </div>

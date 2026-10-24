@@ -255,41 +255,15 @@
         // Alternar menú móvil
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            if (menu.classList.contains('max-h-0')) {
-                menu.classList.remove('max-h-0');
-                menu.classList.add('max-h-[500px]');
-            } else {
-                menu.classList.remove('max-h-[500px]');
-                menu.classList.add('max-h-0');
-            }
+    
+            // Alterna entre 0 y un valor máximo que cubra el contenido
+            menu.classList.toggle('max-h-0');
+            menu.classList.toggle('max-h-[500px]'); 
         }
 
         // Ir a la sección de pedidos
         function scrollToOrder() {
-            switchMainView('landing');
             document.getElementById('pedidos').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Cambiar entre Vista Landing Page y Vista Manual de Marca
-        function switchMainView(view) {
-            const landingView = document.getElementById('view-landing');
-            const brandView = document.getElementById('view-brand');
-            const btnLanding = document.getElementById('btn-view-landing');
-            const btnBrand = document.getElementById('btn-view-brand');
-
-            if (view === 'brand') {
-                landingView.classList.add('hidden');
-                brandView.classList.remove('hidden');
-                btnBrand.className = 'flex-1 sm:flex-initial justify-center px-3 py-1.5 rounded-full font-semibold transition-all bg-miel text-cacao shadow-sm flex items-center gap-1.5 text-xs';
-                btnLanding.className = 'flex-1 sm:flex-initial justify-center px-3 py-1.5 rounded-full font-semibold transition-all text-crema hover:bg-crema/10 flex items-center gap-1.5 text-xs';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                brandView.classList.add('hidden');
-                landingView.classList.remove('hidden');
-                btnLanding.className = 'flex-1 sm:flex-initial justify-center px-3 py-1.5 rounded-full font-semibold transition-all bg-miel text-cacao shadow-sm flex items-center gap-1.5 text-xs';
-                btnBrand.className = 'flex-1 sm:flex-initial justify-center px-3 py-1.5 rounded-full font-semibold transition-all text-crema hover:bg-crema/10 flex items-center gap-1.5 text-xs';
-            }
-            lucide.createIcons();
         }
 
         // Procesar envío del formulario de pedido y abrir WhatsApp
