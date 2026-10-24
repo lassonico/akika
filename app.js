@@ -255,7 +255,6 @@
         // Alternar menú móvil
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-    
             // Alterna entre 0 y un valor máximo que cubra el contenido
             menu.classList.toggle('max-h-0');
             menu.classList.toggle('max-h-[500px]'); 
