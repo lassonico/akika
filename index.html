@@ -162,73 +162,23 @@
 
                     <!-- Right Column: Visual Composition -->
                     <div class="lg:col-span-5 relative flex justify-center">
-                        <div class="relative w-full max-w-md aspect-square flex items-center justify-center">
+                        <div class="bg-[url('./assets/banner.jpg')] bg-cover bg-center relative w-full max-w-md aspect-square flex items-center justify-center reounded rounded-xl">
                             <!-- Animated background shape -->
-                            <div class="absolute inset-4 bg-gradient-to-tr from-salvia/40 via-miel/40 to-cremaDark blob-shape"></div>
+                            <!-- <div class="absolute -left-[350px] -z-10 inset-20 bg-gradient-to-tr from-salvia/40 via-miel/40 to-cremaDark blob-shape"></div> -->
                             
                             <!-- Main Dessert Art Card -->
-                            <div class="relative z-10 bg-white/80 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl border border-cacao/10 w-11/12 text-center">
+                            <div class="absolute bg-black/40 backdrop-blur-md p-6 sm:p-8 rounded-b-xl shadow-xl w-full text-center bottom-0 left-1/2 -translate-x-1/2">
                                 <!-- Custom Aesthetic SVG of Cupcake, Brownie & Cookie -->
-                                <svg class="w-full h-56 mx-auto" viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Plate -->
-                                    <ellipse cx="150" cy="190" rx="125" ry="18" fill="#FCF0DA" stroke="#4C4541" stroke-width="2.5"/>
-                                    <ellipse cx="150" cy="188" rx="95" ry="10" fill="#F5E2BE"/>
-                                    
-                                    <!-- Brownie (Left) -->
-                                    <g transform="translate(35, 110)">
-                                        <path d="M10 30 L55 15 L90 30 L90 70 L45 85 L10 70 Z" fill="#4C4541" stroke="#4C4541" stroke-width="2" stroke-linejoin="round"/>
-                                        <path d="M10 30 L55 15 L90 30 L45 45 Z" fill="#6E655F" stroke="#4C4541" stroke-width="2" stroke-linejoin="round"/>
-                                        <!-- Almond slices on brownie -->
-                                        <ellipse cx="48" cy="28" rx="6" ry="3" transform="rotate(-15 48 28)" fill="#FCF0DA"/>
-                                        <ellipse cx="62" cy="32" rx="5" ry="2.5" transform="rotate(20 62 32)" fill="#F2C46A"/>
-                                        <ellipse cx="38" cy="34" rx="5" ry="2.5" transform="rotate(5 38 34)" fill="#FCF0DA"/>
-                                    </g>
-
-                                    <!-- Cupcake (Center Hero) -->
-                                    <g transform="translate(105, 45)">
-                                        <!-- Wrapper -->
-                                        <path d="M15 85 L25 140 L65 140 L75 85 Z" fill="#AEAC78" stroke="#4C4541" stroke-width="2.5" stroke-linejoin="round"/>
-                                        <line x1="30" y1="85" x2="35" y2="140" stroke="#4C4541" stroke-width="1.5" stroke-opacity="0.4"/>
-                                        <line x1="45" y1="85" x2="45" y2="140" stroke="#4C4541" stroke-width="1.5" stroke-opacity="0.4"/>
-                                        <line x1="60" y1="85" x2="55" y2="140" stroke="#4C4541" stroke-width="1.5" stroke-opacity="0.4"/>
-                                        <!-- Sponge base -->
-                                        <path d="M12 85 C12 68 78 68 78 85 Z" fill="#F2C46A" stroke="#4C4541" stroke-width="2.5"/>
-                                        <!-- Chocolate Frosting Swirl -->
-                                        <path d="M18 75 C10 60 25 50 28 50 C22 35 40 25 45 25 C45 15 55 15 58 25 C68 28 75 40 65 52 C75 58 78 72 68 75 Z" fill="#4C4541" stroke="#4C4541" stroke-width="2.5" stroke-linejoin="round"/>
-                                        <!-- Frosting highlights -->
-                                        <path d="M32 52 C38 48 52 48 58 54" stroke="#6E655F" stroke-width="3" stroke-linecap="round"/>
-                                        <path d="M38 36 C42 33 50 33 54 37" stroke="#6E655F" stroke-width="3" stroke-linecap="round"/>
-                                        <!-- Top Almond / Berry -->
-                                        <path d="M45 8 C40 14 40 22 45 26 C50 22 50 14 45 8 Z" fill="#F2C46A" stroke="#4C4541" stroke-width="2"/>
-                                    </g>
-
-                                    <!-- Cookie (Right) -->
-                                    <g transform="translate(175, 125)">
-                                        <ellipse cx="45" cy="45" rx="38" ry="24" fill="#F2C46A" stroke="#4C4541" stroke-width="2.5"/>
-                                        <!-- Chocolate chips -->
-                                        <circle cx="30" cy="40" r="4" fill="#4C4541"/>
-                                        <circle cx="48" cy="35" r="4.5" fill="#4C4541"/>
-                                        <circle cx="60" cy="46" r="3.5" fill="#4C4541"/>
-                                        <circle cx="40" cy="52" r="4" fill="#4C4541"/>
-                                        <circle cx="25" cy="50" r="3" fill="#4C4541"/>
-                                        <circle cx="55" cy="38" r="2.5" fill="#FCF0DA"/>
-                                    </g>
-
-                                    <!-- Sparkles -->
-                                    <circle cx="65" cy="60" r="4" fill="#F2C46A"/>
-                                    <circle cx="235" cy="80" r="5" fill="#AEAC78"/>
-                                    <path d="M215 40 L218 48 L226 51 L218 54 L215 62 L212 54 L204 51 L212 48 Z" fill="#F2C46A"/>
-                                </svg>
-
-                                <div class="mt-2">
-                                    <span class="bg-salvia/30 text-cacao text-xs font-bold px-3 py-1 rounded-full">100% Keto & Paleo Friendly</span>
-                                    <h3 class="font-brand text-xl font-bold text-cacao mt-2">Dulzura que cuida de ti</h3>
-                                    <p class="text-xs text-cacaoLight mt-1">Sin picos de insulina • Textura suave y húmeda</p>
+                                <!-- <img src="./assets/banner.jpg" alt="Cupcake, Brownie y Galleta" class="mx-auto w-100 rounded-lg sm:w-40 shadow-lg shadow-black/20">
+                                <div class="mt-2"> -->
+                                    <span class="bg-salvia/30 text-miel text-xs font-bold px-3 py-1 rounded-full shadow-sm">100% Artesanal Keto & Paleo Friendly</span>
+                                    <h3 class="font-brand text-xl font-bold text-miel mt-2">Dulzura que cuida de ti</h3>
+                                    <p class="text-xs text-white mt-1">Sin picos de insulina • Textura suave y húmeda</p>
                                 </div>
                             </div>
 
                             <!-- Floating badge -->
-                            <div class="absolute -bottom-3 -left-2 sm:left-4 bg-cacao text-crema p-4 rounded-2xl shadow-lg flex items-center gap-3 z-20 border border-miel/30">
+                            <div class="absolute -bottom-14 -left-2 sm:left-4 bg-black/90 p-4 rounded-2xl shadow-lg flex items-center gap-3 z-20 border border-miel/30 opacity-80">
                                 <div class="w-10 h-10 rounded-full bg-miel text-cacao flex items-center justify-center font-bold text-lg">
                                     0%
                                 </div>
@@ -308,7 +258,7 @@
                         Todos
                     </button>
                     <button onclick="filterProducts('kupkakes')" id="filter-kupkakes" class="filter-btn bg-cremaDark/60 hover:bg-cremaDark text-cacao px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all">
-                        🧁 Kupkakes
+                        🥛 vasito
                     </button>
                     <button onclick="filterProducts('brownies')" id="filter-brownies" class="filter-btn bg-cremaDark/60 hover:bg-cremaDark text-cacao px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all">
                         🍫 Brownies
@@ -467,7 +417,7 @@
                             </div>
                             <div class="flex items-center gap-3">
                                 <i data-lucide="phone-call" class="w-4 h-4 text-salvia shrink-0"></i>
-                                <span>WhatsApp Pedidos: <strong>313 850 5017</strong></span>
+                                <span>WhatsApp Pedidos: <strong>324 762 1157</strong></span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <i data-lucide="clock" class="w-4 h-4 text-miel shrink-0"></i>
@@ -525,10 +475,10 @@
                                 <div class="flex items-start sm:items-center gap-3">
                                     <input type="checkbox" id="add-degustacion" onchange="toggleDegustacion(this)" class="w-5 h-5 mt-0.5 sm:mt-0 accent-cacao rounded cursor-pointer shrink-0">
                                     <label for="add-degustacion" class="text-xs sm:text-sm font-semibold text-cacao cursor-pointer leading-snug">
-                                        ✨ Agregar <strong>Caja Degustación Akika</strong> (2 Kupkakes + 2 Brownies + 4 Galletas)
+                                        ✨ Agregar <strong>Caja Degustación Akika</strong> (1 Vasito + 2 Brownies + 2 Galletas)
                                     </label>
                                 </div>
-                                <span class="font-bold text-sm text-cacao pl-8 sm:pl-0 shrink-0">$42.000</span>
+                                <span class="font-bold text-sm text-cacao pl-8 sm:pl-0 shrink-0">$52.000</span>
                             </div>
 
                             <button type="submit" class="w-full bg-miel hover:bg-[#1ebe5d] text-cacao font-bold py-4 px-6 rounded-full shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 text-sm sm:text-base">
@@ -557,7 +507,7 @@
                         <i data-lucide="heart" class="w-6 h-6 text-miel"></i>
                     </div>
                     <div>
-                        <p class="text-xs text-crema/70">Emprendimiento Familiar • Palermo, Huila • WhatsApp: 313 850 5017</p>
+                        <p class="text-xs text-crema/70">Emprendimiento Familiar • Palermo, Huila • WhatsApp: 324 762 1157</p>
                     </div>
                 </div>
                 <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-4 text-xs text-crema/70">

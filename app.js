@@ -1,86 +1,46 @@
 
-        const AKIKA_WHATSAPP = '573138505017';
+        const AKIKA_WHATSAPP = '573247621157';
 
         // Catálogo de productos de Akika
+        // Catálogo de productos de Akika (Actualizado)
         const PRODUCTS = [
             {
                 id: 'kup-1',
-                name: 'Kupkakes de Cacao Intenso & Almendra',
-                category: 'kupkakes',
+                name: 'Vasito cuchariable de brownie con crema',
+                category: 'kupkakes', 
                 tag: 'Más Vendido',
-                price: 26000,
-                presentation: 'Caja x 4 unidades',
-                description: 'Bizcocho esponjoso 100% harina de almendra con frosting cremoso de chocolate amargo al 75% endulzado con alulosa.',
+                price: 14000,
+                presentation: 'Vaso de 80/100g',
+                description: 'Vaso de 10oz con trocitos de brownie de 90/100g y crema batida receta casera 100% artesanal endulzada con alulosa.',
                 macros: '2g Carbs Netos • 0g Azúcar',
-                svgColor: '#4C4541',
-                accentColor: '#F2C46A'
-            },
-            {
-                id: 'kup-2',
-                name: 'Kupkakes Vainilla Dorada & Chips',
-                category: 'kupkakes',
-                tag: 'Suaves y Húmedos',
-                price: 26000,
-                presentation: 'Caja x 4 unidades',
-                description: 'Aromatizados con extracto puro de vainilla, harina de almendra blanqueada y trocitos de cacao amargo.',
-                macros: '1.8g Carbs Netos • 0g Azúcar',
-                svgColor: '#F2C46A',
-                accentColor: '#AEAC78'
+                image: './assets/vasito.jpg' // <-- Cambia esto por el nombre exacto de tu imagen
             },
             {
                 id: 'bro-1',
                 name: 'Fudgy Brownie Doble Cacao Amargo',
                 category: 'brownies',
                 tag: 'Favorito Keto',
-                price: 28000,
-                presentation: 'Caja x 4 cuadros grandes',
+                price: 12000,
+                presentation: 'Unidad de 80/100g',
                 description: 'Textura ultra húmeda tipo fudge por dentro y corteza crujiente por fuera. Elaborado con chocolate 80% cacao y alulosa.',
                 macros: '2.2g Carbs Netos • Sin Trigo',
-                svgColor: '#4C4541',
-                accentColor: '#AEAC78'
-            },
-            {
-                id: 'bro-2',
-                name: 'Blondie de Almendra Tostada & Cacao',
-                category: 'brownies',
-                tag: 'Nuevo',
-                price: 30000,
-                presentation: 'Caja x 4 cuadros grandes',
-                description: 'Versión dorada con mantequilla de almendras artesanal, alulosa caramelizada y lluvia de almendras fileteadas.',
-                macros: '2g Carbs Netos • Rico en Proteína',
-                svgColor: '#E5B24D',
-                accentColor: '#4C4541'
+                image: './assets/brownie.jpg' // <-- Cambia esto por el nombre exacto de tu imagen
             },
             {
                 id: 'gal-1',
                 name: 'Galletas Chocochips Cacao 80%',
                 category: 'galletas',
-                tag: 'Clásico Sin Culpa',
-                price: 22000,
-                presentation: 'Paquete x 6 unidades',
-                description: 'Crujientes por fuera y suaves en el centro. Hechas con harina de almendras y trozos generosos de chocolate amargo.',
-                macros: '1.5g Carbs Netos c/u • 0g Azúcar',
-                svgColor: '#F2C46A',
-                accentColor: '#4C4541'
-            },
-            {
-                id: 'gal-2',
-                name: 'Galletas Doble Chocolate & Sal Marina',
-                category: 'galletas',
-                tag: 'Amantes del Cacao',
-                price: 24000,
-                presentation: 'Paquete x 6 unidades',
-                description: 'Masa de cacao alcalino sin azúcar, harina de almendras, alulosa y un toque sutil de escamas de sal marina.',
-                macros: '1.6g Carbs Netos c/u • Keto',
-                svgColor: '#4C4541',
-                accentColor: '#F2C46A'
+                tag: 'Crocantes y chocoso',
+                price: 8000,
+                presentation: 'Unidad',
+                description: 'Galleta 100% harina de almendra con trocitos de chocolate al 70% horneaditas receta 100% casera y artesanal.',
+                macros: '1.8g Carbs Netos • 0g Azúcar',
+                image: './assets/galletas.jpg' // <-- Cambia esto por el nombre exacto de tu imagen
             }
         ];
 
-        // Estado del Carrito en memoria
-        let cart = [
-            { id: 'bro-1', name: 'Fudgy Brownie Doble Cacao Amargo', price: 28000, qty: 1 }
-        ];
+        // Estado inicial del carrito (limpio por defecto)
+        let cart = [];
         let currentFilter = 'todos';
 
         // Formateador de moneda
@@ -88,41 +48,7 @@
             return '$' + amount.toLocaleString('es-CO');
         }
 
-        // Generar ilustración SVG personalizada por categoría
-        function getProductSVG(category, mainColor, accentColor) {
-            if (category === 'kupkakes') {
-                return `
-                <svg class="w-28 h-28 mx-auto transition-transform duration-300 group-hover:scale-110" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="50" r="44" fill="${accentColor}" fill-opacity="0.25"/>
-                    <path d="M30 58 L36 86 L64 86 L70 58 Z" fill="#AEAC78" stroke="#4C4541" stroke-width="2" stroke-linejoin="round"/>
-                    <path d="M26 56 C20 42 35 34 38 34 C36 22 48 16 52 18 C58 18 66 26 62 34 C72 38 76 48 70 56 Z" fill="${mainColor}" stroke="#4C4541" stroke-width="2" stroke-linejoin="round"/>
-                    <circle cx="50" cy="16" r="4" fill="#F2C46A" stroke="#4C4541" stroke-width="1.5"/>
-                </svg>`;
-            } else if (category === 'brownies') {
-                return `
-                <svg class="w-28 h-28 mx-auto transition-transform duration-300 group-hover:scale-110" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="50" r="44" fill="${accentColor}" fill-opacity="0.25"/>
-                    <path d="M22 42 L50 28 L78 42 L78 68 L50 82 L22 68 Z" fill="${mainColor}" stroke="#4C4541" stroke-width="2" stroke-linejoin="round"/>
-                    <path d="M22 42 L50 28 L78 42 L50 56 Z" fill="#6E655F" stroke="#4C4541" stroke-width="2" stroke-linejoin="round"/>
-                    <ellipse cx="46" cy="40" rx="5" ry="2.5" fill="#FCF0DA"/>
-                    <ellipse cx="56" cy="44" rx="4" ry="2" fill="#F2C46A"/>
-                </svg>`;
-            } else {
-                return `
-                <svg class="w-28 h-28 mx-auto transition-transform duration-300 group-hover:scale-110" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="50" r="44" fill="${accentColor}" fill-opacity="0.25"/>
-                    <circle cx="50" cy="52" r="28" fill="${mainColor}" stroke="#4C4541" stroke-width="2"/>
-                    <circle cx="40" cy="44" r="3.5" fill="#4C4541"/>
-                    <circle cx="56" cy="40" r="4" fill="#4C4541"/>
-                    <circle cx="60" cy="56" r="3.5" fill="#4C4541"/>
-                    <circle cx="44" cy="60" r="4" fill="#4C4541"/>
-                    <circle cx="36" cy="54" r="2.5" fill="#FCF0DA"/>
-                    <circle cx="52" cy="50" r="2.5" fill="#FCF0DA"/>
-                </svg>`;
-            }
-        }
-
-        // Renderizar productos
+        // Renderizar productos con imágenes 16:9
         function renderProducts() {
             const grid = document.getElementById('products-grid');
             const filtered = currentFilter === 'todos' 
@@ -136,9 +62,12 @@
                             <span class="bg-salvia/30 text-cacao text-[11px] font-bold px-3 py-1 rounded-full">${product.tag}</span>
                             <span class="text-xs font-semibold text-cacaoLight">${product.presentation}</span>
                         </div>
-                        <div class="py-4 bg-crema/70 rounded-2xl mb-4 border border-cacao/5">
-                            ${getProductSVG(product.category, product.svgColor, product.accentColor)}
+                        
+                        <!-- Contenedor de imagen 16:9 (aspect-video) -->
+                        <div class="mb-4 overflow-hidden rounded-2xl border border-cacao/5 aspect-video bg-crema/70 relative">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x338/4C4541/FCF0DA?text=Akika'">
                         </div>
+
                         <h3 class="font-brand text-xl font-bold text-cacao">${product.name}</h3>
                         <p class="text-xs text-cacaoLight mt-2 leading-relaxed">${product.description}</p>
                     </div>
@@ -208,7 +137,7 @@
                 cart.push({
                     id: 'combo-degustacion',
                     name: 'Caja Degustación Akika (Mix)',
-                    price: 42000,
+                    price: 52000,
                     qty: 1
                 });
             } else {
