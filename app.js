@@ -10,10 +10,10 @@
                 category: 'kupkakes', 
                 tag: 'Más Vendido',
                 price: 14000,
-                presentation: 'Vaso de 80/100g',
-                description: 'Vaso de 10oz con trocitos de brownie de 90/100g y crema batida receta casera 100% artesanal endulzada con alulosa.',
+                presentation: 'Vaso de 90/100g',
+                description: 'Vaso de 9Oz con trocitos de brownie de 90/100g y crema batida receta casera 100% artesanal endulzada con alulosa.',
                 macros: '2g Carbs Netos • 0g Azúcar',
-                image: './assets/vasito.jpg' // <-- Cambia esto por el nombre exacto de tu imagen
+                image: './assets/vasito.jpg' 
             },
             {
                 id: 'bro-1',
@@ -21,21 +21,21 @@
                 category: 'brownies',
                 tag: 'Favorito Keto',
                 price: 12000,
-                presentation: 'Unidad de 80/100g',
-                description: 'Textura ultra húmeda tipo fudge por dentro y corteza crujiente por fuera. Elaborado con chocolate 80% cacao y alulosa.',
+                presentation: 'Unidad de 90/100g',
+                description: 'Textura ultra húmeda tipo fudge por dentro y corteza crujiente por fuera. Elaborado con chocolate 70% cacao y alulosa.',
                 macros: '2.2g Carbs Netos • Sin Trigo',
-                image: './assets/brownie.jpg' // <-- Cambia esto por el nombre exacto de tu imagen
+                image: './assets/brownie.jpg' 
             },
             {
                 id: 'gal-1',
-                name: 'Galletas Chocochips Cacao 80%',
+                name: 'Galletas Choccichispas',
                 category: 'galletas',
                 tag: 'Crocantes y chocoso',
                 price: 8000,
                 presentation: 'Unidad',
                 description: 'Galleta 100% harina de almendra con trocitos de chocolate al 70% horneaditas receta 100% casera y artesanal.',
                 macros: '1.8g Carbs Netos • 0g Azúcar',
-                image: './assets/galletas.jpg' // <-- Cambia esto por el nombre exacto de tu imagen
+                image: './assets/galletas.jpg' 
             }
         ];
 
