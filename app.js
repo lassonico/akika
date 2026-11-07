@@ -11,9 +11,20 @@
                 tag: 'Más Vendido',
                 price: 14000,
                 presentation: 'Vaso de 90/100g',
-                description: 'Vaso de 9Oz con trocitos de brownie de 90/100g y crema batida receta casera 100% artesanal endulzada con alulosa.',
+                description: 'Vaso de 9 Oz con trocitos de brownie de 90/100g y crema batida receta casera 100% artesanal endulzada con alulosa.',
                 macros: '2g Carbs Netos • 0g Azúcar',
                 image: './assets/vasito.jpg' 
+            },
+            {
+                id: 'kup-2',
+                name: 'Vasito cuchariable de brownie con café',
+                category: 'kupkakes', 
+                tag: 'Más Vendido',
+                price: 15000,
+                presentation: 'Vaso de 90/100g',
+                description: 'Vaso de 9 Oz con trocitos de brownie de 90/100g y crema de café Juan Valdez receta casera 100% artesanal endulzada con alulosa.',
+                macros: '2g Carbs Netos • 0g Azúcar',
+                image: './assets/vasitoCafe.webp' 
             },
             {
                 id: 'bro-1',
