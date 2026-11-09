@@ -39,7 +39,7 @@
             },
             {
                 id: 'gal-1',
-                name: 'Galletas Choccichispas',
+                name: 'Galletas Chocochispas',
                 category: 'galletas',
                 tag: 'Crocantes y chocoso',
                 price: 8000,
@@ -51,7 +51,13 @@
         ];
 
         // Estado inicial del carrito (limpio por defecto)
-        let cart = [];
+        // Recupera el carrito guardado o inicia uno vacío
+        let cart = JSON.parse(localStorage.getItem('carritoAkika')) || [];
+
+        // Función auxiliar para guardar en localStorage
+        function saveCart() {
+            localStorage.setItem('carritoAkika', JSON.stringify(cart));
+        }
         let currentFilter = 'todos';
 
         // Formateador de moneda
@@ -124,6 +130,8 @@
             } else {
                 cart.push({ id: prod.id, name: prod.name, price: prod.price, qty: 1 });
             }
+            
+            saveCart(); // <-- Guardamos en localStorage
             updateCartUI();
         }
 
@@ -139,9 +147,10 @@
                 }
                 cart.splice(idx, 1);
             }
+            
+            saveCart(); // <-- Guardamos en localStorage
             updateCartUI();
         }
-
         // Toggle Caja Degustación
         function toggleDegustacion(checkbox) {
             if (checkbox.checked) {
@@ -274,3 +283,8 @@
             updateCartUI();
             lucide.createIcons();
         };
+
+                document.addEventListener('DOMContentLoaded', () => {
+            // Renderiza el carrito que acabamos de recuperar de localStorage
+            updateCartUI();
+        });
