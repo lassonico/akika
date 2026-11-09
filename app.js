@@ -1,5 +1,6 @@
 
         const AKIKA_WHATSAPP = '573247621157';
+        let pendingWhatsAppUrl = '';
 
         // Catálogo de productos de Akika
         // Catálogo de productos de Akika (Actualizado)
@@ -214,19 +215,43 @@
             document.getElementById('pedidos').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Procesar envío del formulario de pedido y abrir WhatsApp
+        // Procesar envío del formulario de pedido
+        // Procesar envío del formulario de pedido
         function handleOrderSubmit(e) {
-            e.preventDefault();
+            e.preventDefault(); // Evita recargar la página
+
+            // Validación 1: Evitar enviar carrito vacío
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío. Agrega algunos postres antes de hacer tu pedido.');
+                return;
+            }
+
             const name = document.getElementById('cust-name').value.trim();
-            const phone = document.getElementById('cust-phone').value.trim();
             const type = document.getElementById('cust-type').value;
             const date = document.getElementById('cust-date').value;
-            const notes = document.getElementById('cust-notes').value.trim() || 'Sin notas adicionales';
+            const notes = document.getElementById('cust-notes').value.trim();
+            
+            // Limpiamos espacios o guiones del teléfono para validarlo correctamente
+            const rawPhone = document.getElementById('cust-phone').value.trim();
+            const phone = rawPhone.replace(/\s|-/g, ''); 
+
+            // Validación 2: Teléfono de Colombia (Empieza por 3 y tiene 10 dígitos numéricos)
+            const phoneRegex = /^3\d{9}$/;
+            if (!phoneRegex.test(phone)) {
+                alert('Por favor, ingresa un número de celular válido (debe empezar por 3 y tener 10 dígitos).');
+                document.getElementById('cust-phone').focus();
+                return;
+            }
+
+            // Validación 3: Dirección obligatoria
+            if (notes === '') {
+                alert('Por favor, ingresa tu dirección, barrio o punto de referencia para la entrega.');
+                document.getElementById('cust-notes').focus();
+                return;
+            }
 
             const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
-            const itemsList = cart.length > 0 
-                ? cart.map(i => `🧁 *${i.qty}x* ${i.name} (${formatCOP(i.price * i.qty)})`).join('\n')
-                : '💬 *Consulta personalizada* (sin productos seleccionados en el carrito)';
+            const itemsList = cart.map(i => `🧁 *${i.qty}x* ${i.name} (${formatCOP(i.price * i.qty)})`).join('\n');
 
             const summary = `🌱 *¡HOLA AKIKA! NUEVO PEDIDO SIN CULPA* 🧁🍫🍪\n` +
                 `_Repostería Saludable - Palermo, Huila_\n\n` +
@@ -239,40 +264,57 @@
                 `📍 *Dirección / Notas:* ${notes}\n\n` +
                 `✨ _¡Gracias por endulzar mi día de forma saludable!_ 💛`;
 
-            const whatsappUrl = `https://wa.me/${AKIKA_WHATSAPP}?text=${encodeURIComponent(summary)}`;
+            // Guardamos la URL para abrirla después de los 4 segundos
+            pendingWhatsAppUrl = `https://wa.me/${AKIKA_WHATSAPP}?text=${encodeURIComponent(summary)}`;
 
-            document.getElementById('modal-name').textContent = name;
-            document.getElementById('modal-summary-text').textContent = summary;
-            document.getElementById('btn-whatsapp-direct').href = whatsappUrl;
+            // 1. Mostrar el Modal en estado "Cargando"
+            document.getElementById('modal-state-loading').classList.remove('hidden');
+            document.getElementById('modal-state-loading').classList.add('flex');
+            
+            document.getElementById('modal-state-success').classList.add('hidden');
+            document.getElementById('modal-state-success').classList.remove('flex');
+            
             document.getElementById('order-modal').classList.remove('hidden');
-            lucide.createIcons();
+            lucide.createIcons(); // Refrescar iconos
 
-            // Abrir WhatsApp en una nueva pestaña
-            window.open(whatsappUrl, '_blank');
-        }
-
-        function closeModal() {
-            document.getElementById('order-modal').classList.add('hidden');
-        }
-
-        function copyOrderText() {
-            const text = document.getElementById('modal-summary-text').textContent;
-            const tempInput = document.createElement('textarea');
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            const btn = document.getElementById('btn-copy-order');
-            btn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> ¡Copiado al portapapeles!';
-            lucide.createIcons();
+            // 2. Esperar 4 segundos (4000 ms) y cambiar al estado "Éxito"
             setTimeout(() => {
-                btn.innerHTML = '<i data-lucide="copy" class="w-4 h-4"></i> Copiar Resumen del Pedido';
-                lucide.createIcons();
-            }, 2500);
+                document.getElementById('modal-state-loading').classList.add('hidden');
+                document.getElementById('modal-state-loading').classList.remove('flex');
+                
+                document.getElementById('modal-state-success').classList.remove('hidden');
+                document.getElementById('modal-state-success').classList.add('flex');
+            }, 4000);
         }
+// Acción final: Click en "Aceptar y Enviar Pedido"
+function confirmAndSendOrder() {
+    // 1. Abrir WhatsApp
+    window.open(pendingWhatsAppUrl, '_blank');
+    
+    // 2. Limpiar el carrito y el LocalStorage
+    cart = [];
+    saveCart();
+    updateCartUI();
+    
+    // 3. Desmarcar checkbox de degustación si estaba activo
+    const comboCheckbox = document.getElementById('add-degustacion');
+    if(comboCheckbox) comboCheckbox.checked = false;
 
+    // 4. Limpiar el formulario y resetear fecha
+    document.getElementById('order-form').reset();
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    document.getElementById('cust-date').valueAsDate = tomorrow;
+
+    // 5. Cerrar modal y subir al inicio
+    closeModal();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Cerrar Modal manualmente (por seguridad)
+function closeModal() {
+    document.getElementById('order-modal').classList.add('hidden');
+}
         // Inicializar fecha por defecto (mañana) y cargar íconos
         window.onload = function() {
             const tomorrow = new Date();
