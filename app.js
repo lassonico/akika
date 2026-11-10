@@ -18,9 +18,9 @@
             },
             {
                 id: 'kup-2',
-                name: 'Vasito cuchariable de brownie con café',
+                name: 'Vasito cuchariable de brownie con café Juan Valdez',
                 category: 'kupkakes', 
-                tag: 'Más Vendido',
+                tag: 'Nuevo',
                 price: 15000,
                 presentation: 'Vaso de 90/100g',
                 description: 'Vaso de 9 Oz con trocitos de brownie de 90/100g y crema de café Juan Valdez receta casera 100% artesanal endulzada con alulosa.',
@@ -89,7 +89,7 @@
                         <h3 class="font-brand text-xl font-bold text-cacao">${product.name}</h3>
                         <p class="text-xs text-cacaoLight mt-2 leading-relaxed">${product.description}</p>
                     </div>
-
+                            
                     <div class="mt-6 pt-4 border-t border-cacao/10">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[11px] font-bold uppercase tracking-wider text-salviaDark flex items-center gap-1">
@@ -182,7 +182,7 @@
             if (cart.length === 0) {
                 container.innerHTML = `
                     <div class="bg-cacaoLight/30 border border-crema/10 rounded-2xl p-4 text-center text-xs text-crema/70">
-                        Tu carrito está vacío. Agrega kupkakes, brownies o galletas desde el menú.
+                        Tu carrito está vacío. Agrega vasitos, brownies o galletas desde el menú.
                     </div>
                 `;
             } else {
@@ -238,7 +238,7 @@
             // Validación 2: Teléfono de Colombia (Empieza por 3 y tiene 10 dígitos numéricos)
             const phoneRegex = /^3\d{9}$/;
             if (!phoneRegex.test(phone)) {
-                alert('Por favor, ingresa un número de celular válido (debe empezar por 3 y tener 10 dígitos).');
+                alert('Por favor, ingresa un número de celular válido.');
                 document.getElementById('cust-phone').focus();
                 return;
             }
