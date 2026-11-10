@@ -11,8 +11,72 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- ========================================== -->
+    <!-- SEO BÁSICO Y ROBOTS                        -->
+    <!-- ========================================== -->
+    <meta name="description" content="Akika: Repostería saludable en Palermo, Huila. Postres 100% artesanales, sin azúcar refinada y sin harina de trigo. Apto para diabéticos y dieta Keto.">
+    <meta name="keywords" content="repostería saludable, postres keto, sin azúcar, harina de almendras, Palermo Huila, postres para diabéticos, brownies saludables, alulosa, galletas keto">
+    <meta name="author" content="Akika Repostería">
+    
+    <!-- Instrucciones para el Robot de Google -->
+    <meta name="robots" content="index, follow">
+    <!-- Evita contenido duplicado indicando la URL principal -->
+    <link rel="canonical" href="https://akikareposteria.com/">
+
+    <!-- ========================================== -->
+    <!-- OPEN GRAPH (Para compartir en WhatsApp/Facebook) -->
+    <!-- ========================================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://akikareposteria.com/">
+    <meta property="og:title" content="Akika | Repostería Saludable Sin Culpa">
+    <meta property="og:description" content="El placer de un buen postre sin remordimientos. Horneamos con harina de almendra, alulosa y cacao amargo. ¡Pide el tuyo en Palermo, Huila!">
+    <!-- Asegúrate de que esta imagen exista en tu carpeta assets. Se verá al compartir el link -->
+    <meta property="og:image" content="https://akikareposteria.com/assets/banner.jpg">
+    <meta property="og:site_name" content="Akika Repostería">
+
+    <!-- ========================================== -->
+    <!-- TWITTER CARDS                              -->
+    <!-- ========================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://akikareposteria.com/">
+    <meta name="twitter:title" content="Akika | Repostería Saludable Sin Culpa">
+    <meta name="twitter:description" content="Postres saludables, keto y sin azúcar refinada en Palermo, Huila. Dulzura que cuida de ti.">
+    <meta name="twitter:image" content="https://akikareposteria.com/assets/banner.jpg">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ========================================== -->
+    <!-- SCHEMA MARKUP (Negocio Local / Repostería) -->
+    <!-- ========================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Akika Repostería",
+      "image": [
+        "https://akikareposteria.com/assets/banner.jpg",
+        "https://akikareposteria.com/logo.png"
+      ],
+      "@id": "https://akikareposteria.com/",
+      "url": "https://akikareposteria.com/",
+      "telephone": "+573247621157",
+      "priceRange": "$$",
+      "menu": "https://akikareposteria.com/#catalogo",
+      "servesCuisine": ["Repostería Saludable", "Keto", "Sin Gluten", "Sin Azúcar"],
+      "description": "El placer de un buen postre sin remordimientos. Horneamos brownies y galletas con harina de almendra, alulosa y cacao amargo en Palermo, Huila.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Palermo",
+        "addressLocality": "Palermo",
+        "addressRegion": "Huila",
+        "addressCountry": "CO"
+      },
+      "sameAs": [
+        "https://www.facebook.com/share/1GoVgukQph", 
+        "https://www.instagram.com/akikasaludable?vrfl=Yno1bHkzcm5xMmE="
+      ]
+    }
+    </script>
     
     <script>
         tailwind.config = {
