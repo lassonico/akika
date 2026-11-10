@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Página Principal (Menú, Nosotros, Pedidos) -->
+  <url>
+    <loc>https://akikareposteria.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Política de Tratamiento de Datos -->
+  <url>
+    <loc>https://akikareposteria.com/politica-tratamiento-datos.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Términos y Condiciones -->
+  <url>
+    <loc>https://akikareposteria.com/terminos-condiciones.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
