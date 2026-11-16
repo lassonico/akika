@@ -77,7 +77,7 @@ function renderProducts() {
                     <span class="text-xs font-semibold text-cacaoLight">${product.presentation}</span>
                 </div>
                 <div class="mb-4 overflow-hidden rounded-2xl border border-cacao/5 aspect-video bg-crema/70 relative">
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x338/4C4541/FCF0DA?text=Akika'">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x338/4C4541/FCF0DA?text=Akika'">
                 </div>
                 <h3 class="font-brand text-xl font-bold text-cacao">${product.name}</h3>
                 <p class="text-xs text-cacaoLight mt-2 leading-relaxed">${product.description}</p>
@@ -140,10 +140,19 @@ function changeQty(productId, delta) {
 
 function toggleDegustacion(checkbox) {
     if (checkbox.checked) {
-        cart.push({ id: 'combo-degustacion', name: 'Caja Degustación Akika (Mix)', price: 52000, qty: 1 });
+        if (!cart.some(item => item.id === 'combo-degustacion')) {
+            cart.push({
+                id: 'combo-degustacion',
+                name: 'Caja Degustación Akika (Mix)',
+                price: 52000,
+                qty: 1
+            });
+        }
     } else {
         cart = cart.filter(item => item.id !== 'combo-degustacion');
     }
+
+    saveCart();
     updateCartUI();
 }
 
@@ -378,6 +387,7 @@ function closeAndResetOrder() {
     tomorrow.setDate(tomorrow.getDate() + 1);
     document.getElementById('cust-date').valueAsDate = tomorrow;
     document.getElementById('payment-details').classList.add('hidden');
+    document.getElementById('btn-submit-order').disabled = false;
 
     // 4. Cerrar modal y subir
     closeModal();

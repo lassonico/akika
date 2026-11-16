@@ -598,13 +598,12 @@
                     <form id="order-form" onsubmit="handleOrderSubmit(event)" class="space-y-4 sm:space-y-5">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Tu
-                                    Nombre *</label>
+                                <label for="cust-name" class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Tu Nombre *</label>
                                 <input type="text" id="cust-name" required placeholder="Ej. Laura Gómez"
                                     class="w-full px-4 py-3 rounded-xl bg-crema border border-cacao/20 text-cacao focus:outline-none focus:border-cacao text-sm">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Tu
+                                <label for="cust-phone" class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Tu
                                     Celular / WhatsApp *</label>
                                 <input type="tel" id="cust-phone" required placeholder="Ej. 310 123 4567"
                                     class="w-full px-4 py-3 rounded-xl bg-crema border border-cacao/20 text-cacao focus:outline-none focus:border-cacao text-sm">
@@ -613,8 +612,7 @@
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                             <div>
-                                <label
-                                    class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Modalidad
+                                <label for="cust-type" class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Modalidad
                                     de Entrega *</label>
                                 <select id="cust-type" required
                                     class="w-full px-4 py-3 rounded-xl bg-crema border border-cacao/20 text-cacao focus:outline-none focus:border-cacao text-sm">
@@ -623,7 +621,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Fecha
+                                <label for="cust-date" class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Fecha
                                     de entrega *</label>
                                 <input type="date" id="cust-date" required
                                     class="w-full px-4 py-3 rounded-xl bg-crema border border-cacao/20 text-cacao focus:outline-none focus:border-cacao text-sm">
@@ -632,7 +630,7 @@
 
                         <!-- Forma de Pago -->
                         <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Forma de
+                            <label for="cust-payment" class="block text-xs font-bold uppercase tracking-wider text-cacao mb-1.5">Forma de
                                 Pago *</label>
                             <select id="cust-payment" required
                                 class="w-full px-4 py-3 rounded-xl bg-crema border border-cacao/20 text-cacao focus:outline-none focus:border-cacao text-sm">
