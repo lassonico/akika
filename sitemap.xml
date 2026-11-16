@@ -10,14 +10,14 @@
 
   <!-- Política de Tratamiento de Datos -->
   <url>
-    <loc>https://akikareposteria.com/politica-tratamiento-datos.html</loc>
+    <loc>https://akikareposteria.com/politica-tratamiento-datos</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Términos y Condiciones -->
   <url>
-    <loc>https://akikareposteria.com/terminos-condiciones.html</loc>
+    <loc>https://akikareposteria.com/terminos-condiciones</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
