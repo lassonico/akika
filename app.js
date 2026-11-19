@@ -13,7 +13,7 @@ const PRODUCTS = [
         presentation: 'Vaso de 90/100g',
         description: 'Vaso de 9 Oz con trocitos de brownie de 90/100g y crema batida receta casera 100% artesanal endulzada con alulosa.',
         macros: '2g Carbs Netos • 0g Azúcar',
-        image: './assets/vasito.jpg'
+        image: './assets/vasito.webp'
     },
     {
         id: 'kup-2',
@@ -35,7 +35,7 @@ const PRODUCTS = [
         presentation: 'Unidad de 90/100g',
         description: 'Textura ultra húmeda tipo fudge por dentro y corteza crujiente por fuera. Elaborado con chocolate 70% cacao y alulosa.',
         macros: '2.2g Carbs Netos • Sin Trigo',
-        image: './assets/brownie.jpg'
+        image: './assets/brownie.webp'
     },
     {
         id: 'gal-1',
@@ -46,7 +46,7 @@ const PRODUCTS = [
         presentation: 'Unidad',
         description: 'Galleta 100% harina de almendra con trocitos de chocolate al 70% horneaditas receta 100% casera y artesanal.',
         macros: '1.8g Carbs Netos • 0g Azúcar',
-        image: './assets/galletas.jpg'
+        image: './assets/galletas.webp'
     }
 ];
 
